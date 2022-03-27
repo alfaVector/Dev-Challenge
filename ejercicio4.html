@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //Realiza el juego de Piedra-Papel-Tijera solicitando la opción de cada jugador por
+        //teclado (‘P’ representa piedra - ‘A’ representa papel - ‘T’ representa tijera). Muestra por
+        //pantalla quien fue el ganador.
+
+        var jugadorUno, jugadorDos;
+
+        jugadorUno = prompt("El jugador 1 debe ingresar un letra:");
+
+        jugadorDos = prompt("El jugador 2 debe ingresar un letra:");
+
+        jugadorUno = jugadorUno.toUpperCase();
+        jugadorDos = jugadorDos.toUpperCase();
+
+
+
+        if (jugadorUno === 'T') {
+            if (jugadorDos === 'P') {
+                document.write("¡El ganador es el jugador 2 !!!");
+            }
+            if (jugadorDos === 'A') {
+                document.write("¡El ganador es el jugador 1 !!!");
+            }
+        }
+
+        if (jugadorUno === 'P') {
+            if (jugadorDos === 'A') {
+                document.write("¡El ganador es el jugador 2 !!!");
+            }
+            if (jugadorDos === 'T') {
+                document.write("¡El ganador es el jugador 1 !!!");
+            }
+        }
+
+        if (jugadorUno === 'A') {
+            if (jugadorDos === 'P') {
+                document.write("¡El ganador es el jugador 1 !!!");
+            }
+            if (jugadorDos === 'T') {
+                document.write("¡El ganador es el jugador 2 !!!");
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

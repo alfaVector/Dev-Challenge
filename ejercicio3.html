@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function ordenamiento(vector) {
+            var aux;
+            //Realizar una función que reciba como parámetro dicho array y lo devuelva ordenado de menor a mayor.
+            //ordenamiento de los numeros del vector
+
+            //Trate explicar en cosas que calculo que son necesarias, es decir, no me da la cara para explicar sumas cuando se derivar e integrar.
+            for (let i = 0; i < vector.length; i++) {
+                document.write("<br>");
+                document.write(vector[i]);
+            }
+
+            //1ER TIPO DE ordenamiento
+
+            for (let i = 1; i < vector.length; i++) {
+                for (let j = 0; j < vector.length - i; j++) {
+                    if (vector[j] > vector[j + 1]) {
+                        aux = vector[j]; //valor actual lo guardo en aux
+                        vector[j] = vector[j + 1]; //en el valor actual guardo la proxima posicion con respecto a la actual
+                        vector[j + 1] = aux; //en el lugar siguiente guardo el valor actual
+                    }
+                }
+
+            }
+
+            //2DO TIPO DE ORDENAMIENTO
+            for (i = 0; i < vector.length; i++) {
+                ibid = i;
+                for (j = i + 1; j < vector.length; j++) {
+                    if (vector[j] < vector[ibid])
+                        ibid = j;
+                }
+                aux = vector[i];
+                vector[i] = vector[ibid];
+                vector[ibid] = aux;
+            }
+
+
+            document.write("<br>");
+            document.write("-----------------------");
+            for (let i = 0; i < vector.length; i++) {
+                document.write("<br>");
+                document.write(vector[i]);
+            }
+
+
+        }
+        //b. Mostrar en pantalla los números del array que se repiten.
+
+        var numeros = [],
+            sumatoria;
+        sumatoria = 0;
+
+        for (let i = 0; i < 5; i++) {
+            numeros[i] = parseInt(prompt("Ingrese un numero:"));
+            sumatoria = sumatoria + numeros[i];
+        }
+
+        ordenamiento(numeros); //llamo a la funcion ordenamiento
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

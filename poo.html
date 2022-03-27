@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //1. Realizar una clase llamada Person, que tenga como datos miembros FirstName,
+        //LastName y Birthday, y cuente con un constructor parametrizado.
+        //2. Sobrecargar el método tostring() para que muestre el nombre y apellido de la persona.
+        //3. Crear dos instancias de la clase Person, una utilizando el constructor parametrizado y la
+        //otra utilizando el constructor sin parametrizar.
+        //4. Realizar una función miembro MyInfo(), que muestre los datos de la instancia.
+        //5. Realizar una función que devuelva true si estas dos instancias tienen los mismos datos.
+        //a. ¿Utilizarías el método Equals? Realizar un ejemplo.
+        //      Si uso equals los objetos deben ser exactsmente igual en sus tipos.
+        //      Lo mas conveviente es adaptar una funcion si la comparacion debe ser mas especifica.
+        //6. Crear la clase Employee que contenga los datos miembro FirstName, LastName, Birthday, File y Departament
+        //a. ¿Utilizarías Herencia? Realizar un ejemplo.
+
+        class Person {
+            constructor(FirstNAme, LastName, Birthday) {
+                this.FirstNAme = FirstNAme;
+                this.LastName = LastName;
+                this.Birthday = Birthday;
+            }
+            constructor() {
+                    this.FirstNAme = prompt("Ingrese nombre:");
+                    this.LastName = prompt("Ingrese el segundo nombre:");
+                    this.Birthday = prompt("Ingrese la edad:");
+                }
+                //Sobrecargpo el metodo toString
+            toString() {
+                return this.FirstNAme + " " + this.LastName;
+            }
+
+            //Metodo que muestra datos de la instancia
+            MyInfo() {
+                return "Nombre:" + this.FirstNAme + " Segundo Nombre: " + this.LastName + " tiene una edad de " + this.Birthday;
+            }
+        }
+
+        //Creo la clase Employee qu extiende a la clase Person
+        /* Si, debo usar herencia para aprovechar todo el poder la POO. Es decir, si ya otra clase tiene definidos
+        atributos que voy a volver a utilizar, usar herencia es lo mas aconsejable.  
+        */
+        class Employee extends Person {
+            constructor(File, Departament) {
+                super(FirstNAme, LastName, Birthday);
+                this.File = File;
+                this.Departament = Departament;
+            }
+        }
+
+
+        // Muestro el nombre y apellido, usando el metodo toString sobrecargado
+        datos = new Person("Cosme", "Fulanito", 23);
+        console.log(datos.toString());
+
+        //3. Creo dos instancias de la clase Person
+        personaUno = new Person("Oracio", "Dimetrio", 45); //constructor parametrizado
+        personaDos = new Person(); //constructor sin parametrizar
+
+        console.log(personaUno);
+        console.log(personaDos);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
