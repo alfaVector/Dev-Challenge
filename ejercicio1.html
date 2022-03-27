@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //Pide por teclado un intervalo entre 2 números. Luego imprime por pantalla todo el
+        //intervalo diciendo los que son primos y los que no.
+
+        //En mi caso voy a tomar los extremos de los numeros que ingresa el usuario
+        var nombre, limiteUno, limiteDos, aux, contadorDivisible, primo, num;
+       
+        //document.write("Ud. debera ingresar un intervalo de numeros. El sistema lo ira guiando.")
+        limiteUno = parseInt(prompt("Ingrese un numero: "));
+        limiteDos = parseInt(prompt("Ingrese otro numero: "));
+        console.log("El primer numero que ingreso es: ", limiteUno);
+        console.log("El primer segundo que ingreso es: ", limiteDos);
+
+        // Con esto me aseguro de tener el intervalo desde el numero menor al mayor
+        if (limiteUno > limiteDos) {
+            aux = limiteDos;
+            limiteDos = limiteUno;
+            limiteUno = aux;
+        }
+
+        //Muestro los numeros del intervalo
+        for (var num = limiteUno; num <= limiteDos; num++) {
+            document.write("<br>");
+            document.write("Numero: ", num);
+             document.write("<br>");
+            console.log("usando la consola: ", num);
+
+           
+            contadorDivisible = 0;//contador que va a contar la cantidad de veces que un numero es divisible
+            //En esta seccion voy a buscar numero por numero, cual es o no un primo.
+            for (var j = 1; j <= num; j++) {
+                //En este for voy a calcular cuantas veces un numero es divisible, el for termina al llegar al numero en cuestion
+                //Es decir, si num= 6, entonces, 6 % 1, 6 % 2, 6 % 3, 6 % 4, 6 % 5, 6 % 6, el incremento de la j es el numero 
+                //por el cual dividimos, hasta llegar al mismo numero.
+
+                if ((num % j) === 0) {//En la condición del if, si el resto es 0 es porque la division es exacta.
+                    contadorDivisible++;
+                    
+                }
+              
+                if (contadorDivisible > 2) {
+                    //primo = false;
+                    j = num; //Si un mismo numero ya supero al contadorDivisible en un valor de 2, esta hace que el for termine
+                             // no hay motivo para que siga hasta el final de divisiones,  
+                }
+            }
+            if (contadorDivisible === 2) {
+                //document.write("<br>");
+                //document.write("El numero ", num, " es Primo");
+                console.log("El numero ", num, " es Primo.")
+            }
+            if (contadorDivisible > 2) {
+                //document.write("<br>");
+                //document.write("<p style='color:red;> ----------   El numero ", num, " NO es Primo. </p>");
+                console.log("El numero ", num, " NO es Primo.");
+            }
+
+
+        }
+
+       
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
